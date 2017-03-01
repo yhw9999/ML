@@ -54,6 +54,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataObjectFolder\DataObject.cs" />
+    <Compile Include="DataObjectFolder\DataSetObject.cs" />
+    <Compile Include="DataObjectFolder\FeatureObject.cs" />
+    <Compile Include="DataObjectFolder\LabelObject.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\Hypothesis.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\OptimizerFolder\GradientDescent.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\OptimizerFolder\IOptimizer.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\OptimizerFolder\Optimizer.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\CostFunctionFolder\ICostFunction.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\CostFunctionFolder\MethodOfLeastSquares.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\Predictor.cs" />
+    <Compile Include="SomethingFolder\Something.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Draw\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

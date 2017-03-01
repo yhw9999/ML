@@ -61,7 +61,7 @@
         <TextBlock x:Name="textBlock_PredictBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Predict : " VerticalAlignment="Top" Grid.Column="1" Margin="23,73,0,0" Grid.Row="1" Height="16" Width="49"/>
         <TextBlock x:Name="textBlock_Predict" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Grid.Column="1" Margin="73,73,0,0" Grid.Row="1" Height="16" Width="70"/>
         <TextBlock x:Name="textBlock_Filter" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Filter :" VerticalAlignment="Top" Grid.Column="1" Margin="14,46,0,0" Height="16" Width="40"/>
-        <ComboBox x:Name="comboBox_Filter" Grid.Column="1" HorizontalAlignment="Left" Margin="62,46,0,0" VerticalAlignment="Top" Width="100" Height="22">
+        <ComboBox x:Name="comboBox_Filter" Grid.Column="1" HorizontalAlignment="Left" Margin="62,46,0,0" VerticalAlignment="Top" Width="100" Height="22" SelectedIndex="0">
             <ComboBoxItem Content="Regression"/>
             <ComboBoxItem Content="Logistic"/>
 

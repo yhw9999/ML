@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32;
+using ML.DataObjectFolder;
+using ML.SomethingFolder;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ML
 {
@@ -20,9 +11,44 @@ namespace ML
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataSetObject _dataSet = null;
+
+        Something _something = null;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Data initialize
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_SetData_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = null;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                filePath = openFileDialog.FileName;
+
+                _dataSet = new DataSetObject(filePath);
+            }
+
+            _something = new Something((KindOfSomething)Enum.Parse(typeof(KindOfSomething), comboBox_Filter.Text));
+        }
+
+        private void button_train_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_Predict_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
