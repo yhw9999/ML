@@ -1,0 +1,72 @@
+﻿<Window x:Class="ML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ML"
+        mc:Ignorable="d"
+        Title="Machine Lerning" Height="700" Width="1000" MinWidth="1000" MinHeight="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="176*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button_Predict" Content="Predict" HorizontalAlignment="Center" VerticalAlignment="Top" Width="76" Grid.Column="1" Margin="139,10,35,0" Click="button_Predict_Click" Height="20"/>
+        <Button x:Name="button_SetData" Content="Set Data" HorizontalAlignment="Center" VerticalAlignment="Top" Width="76" Grid.Column="1" Margin="27,10,147,0" Click="button_SetData_Click" Height="20"/>
+        <Button x:Name="button_train" Content="Train" HorizontalAlignment="Center" Width="76" Grid.Column="1" Margin="86,111,88,10" Click="button_train_Click" VerticalAlignment="Center"/>
+        <TextBox x:Name="textBox_TrainCount" Grid.Column="1" HorizontalAlignment="Center" Height="20" Margin="62,73,148,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" Text="1000" TextAlignment="Right"/>
+
+        <TabControl Grid.RowSpan="2" >
+            <TabItem Header="Cost">
+                <Grid x:Name="grid_CostGrid" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas x:Name="canvas_CostGraph" Grid.Column="1" Margin="30"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Weight">
+                <Grid x:Name="grid_WeightGraph" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas x:Name="canvas_WeightGraph" Grid.Column="1" Margin="30"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBlock x:Name="textBlock_CostBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cost : " VerticalAlignment="Top" Grid.Column="1" Margin="23,10,0,0" Grid.Row="1" Height="16" Width="35"/>
+        <TextBlock x:Name="textBlock_Cost" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Grid.Column="1" Margin="60,10,0,0" Grid.Row="1" Height="16" Width="70"/>
+        <TextBlock x:Name="textBlock_TotalTrainCountBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TotalTrainCount :" VerticalAlignment="Top" Grid.Column="1" Margin="23,31,0,0" Grid.Row="1" Height="16" Width="93"/>
+        <TextBlock x:Name="textBlock_TotalTrainCount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Column="1" Margin="120,31,0,0" Grid.Row="1" Height="16" Width="70"/>
+        <TextBlock x:Name="textBlock_OperatingTimeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Operating Time: " VerticalAlignment="Top" Grid.Column="1" Margin="23,52,0,0" Grid.Row="1" Height="16" Width="92"/>
+        <TextBlock x:Name="textBlock_OperatingTime" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Grid.Column="1" Margin="119,52,0,0" Grid.Row="1" Height="16" Width="70"/>
+        <TextBlock x:Name="textBlock_TrainCount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Count :" VerticalAlignment="Top" Grid.Column="1" Margin="14,75,0,0" Height="16" Width="40"/>
+
+        <TextBox x:Name="textBox_LearningRate" Grid.Column="1" HorizontalAlignment="Center" Height="20" Margin="200,73,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" Text="0.001" TextAlignment="Right"/>
+        <TextBlock x:Name="textBlock_LearningRate" HorizontalAlignment="Left" TextWrapping="Wrap" Text="LearningRate : " VerticalAlignment="Top" Margin="112,75,0,0" Grid.Column="1" Height="16" Width="82"/>
+        <TextBlock x:Name="textBlock_PredictBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Predict : " VerticalAlignment="Top" Grid.Column="1" Margin="23,73,0,0" Grid.Row="1" Height="16" Width="49"/>
+        <TextBlock x:Name="textBlock_Predict" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Grid.Column="1" Margin="73,73,0,0" Grid.Row="1" Height="16" Width="70"/>
+        <TextBlock x:Name="textBlock_Filter" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Filter :" VerticalAlignment="Top" Grid.Column="1" Margin="14,46,0,0" Height="16" Width="40"/>
+        <ComboBox x:Name="comboBox_Filter" Grid.Column="1" HorizontalAlignment="Left" Margin="62,46,0,0" VerticalAlignment="Top" Width="100" Height="22">
+            <ComboBoxItem Content="Regression"/>
+            <ComboBoxItem Content="Logistic"/>
+
+
+        </ComboBox>
+
+    </Grid>
+</Window>
