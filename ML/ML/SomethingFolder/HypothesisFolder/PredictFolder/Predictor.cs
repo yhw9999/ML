@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ML.SomethingFolder.HypothesisFolder.OptimizerFolder;
+using ML.DataObjectFolder;
 
 namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
 {
@@ -12,7 +13,7 @@ namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
     {
         protected ICostFunction _costFunction;
 
-        abstract public double Predict();
+        abstract public double Predict(FeatureObject feature, double[] weightArray);
 
         public void SetCostFunction(ICostFunction costFunction)
         {

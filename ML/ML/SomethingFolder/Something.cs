@@ -43,7 +43,7 @@ namespace ML.SomethingFolder
 
         internal object Predict(FeatureObject feature)
         {
-            throw new NotImplementedException();
+            return _hypothesis.Predict(feature);
         }
     }
 }

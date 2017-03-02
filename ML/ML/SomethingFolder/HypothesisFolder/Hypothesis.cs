@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ML.DataObjectFolder;
 
 namespace ML.SomethingFolder.HypothesisFolder
 {
@@ -39,6 +40,11 @@ namespace ML.SomethingFolder.HypothesisFolder
             {
                 _weightArray[i] = random.NextDouble();
             }
+        }
+
+        internal object Predict(FeatureObject feature)
+        {
+            return _predictor.Predict(feature, _weightArray);
         }
     }
 }
