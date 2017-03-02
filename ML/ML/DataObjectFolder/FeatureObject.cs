@@ -8,11 +8,21 @@ namespace ML.DataObjectFolder
 {
     public class FeatureObject
     {
-        private double[] Features;
+        double[] Features;
 
         public FeatureObject(double[] features)
         {
             Features = features;
+        }
+
+        internal int FeatureCount()
+        {
+            return Features.Length;
+        }
+
+        internal double[] GetFeature()
+        {
+            return Features;
         }
     }
 }

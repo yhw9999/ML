@@ -38,7 +38,8 @@ namespace ML
                 _dataSet = new DataSetObject(filePath);
             }
 
-            _something = new Something((KindOfSomething)Enum.Parse(typeof(KindOfSomething), comboBox_Filter.Text));
+            _something = new Something((KindOfSomething)Enum.Parse(typeof(KindOfSomething), comboBox_Filter.Text)
+                , double.Parse(textBox_LearningRate.Text), _dataSet.GetFeatureCount());
         }
 
         private void button_train_Click(object sender, RoutedEventArgs e)
@@ -48,7 +49,7 @@ namespace ML
 
         private void button_Predict_Click(object sender, RoutedEventArgs e)
         {
-
+            textBlock_Predict.Text = _something.Predict(_dataSet.DataSet[0].Feature).ToString();
         }
     }
 }

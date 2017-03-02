@@ -10,8 +10,9 @@ namespace ML.DataObjectFolder
     public class DataSetObject
     {
         int _rowCount = 0;
+        int _featureCount = 0;
 
-        Dictionary<int, DataObject> DataSet = new Dictionary<int, DataObject>();
+        public Dictionary<int, DataObject> DataSet = new Dictionary<int, DataObject>();
 
         public DataSetObject(string filePath)
         {
@@ -45,6 +46,13 @@ namespace ML.DataObjectFolder
 
                 _rowCount++;
             }
+
+            _featureCount = DataSet[0].GetFueatureCount();
+        }
+
+        internal int GetFeatureCount()
+        {
+            return _featureCount;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace ML.DataObjectFolder
 {
     public class DataObject
     {
-        private FeatureObject Feature;
-        private LabelObject Label;
+        public FeatureObject Feature;
+        public LabelObject Label;
 
         internal void SetLabel(LabelObject labelObject)
         {
@@ -19,6 +19,11 @@ namespace ML.DataObjectFolder
         internal void SetFeature(FeatureObject featureObject)
         {
             Feature = featureObject;
+        }
+
+        internal int GetFueatureCount()
+        {
+            return Feature.FeatureCount();
         }
     }
 }

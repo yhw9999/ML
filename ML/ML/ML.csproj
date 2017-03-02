@@ -65,6 +65,7 @@
     <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\CostFunctionFolder\ICostFunction.cs" />
     <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\CostFunctionFolder\MethodOfLeastSquares.cs" />
     <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\Predictor.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\PredictFolder\Regression.cs" />
     <Compile Include="SomethingFolder\Something.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

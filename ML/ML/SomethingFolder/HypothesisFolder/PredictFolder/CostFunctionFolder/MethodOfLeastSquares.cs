@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace ML.SomethingFolder.HypothesisFolder.PredictFolder.CostFunctionFolder
 {
-    class MethodOfLeastSquares
+    public class MethodOfLeastSquares : ICostFunction
     {
+        public double GetDifferential()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetTotalCost()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
