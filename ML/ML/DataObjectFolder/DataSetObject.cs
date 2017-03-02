@@ -14,6 +14,32 @@ namespace ML.DataObjectFolder
 
         public Dictionary<int, DataObject> DataSet = new Dictionary<int, DataObject>();
 
+        public int RowCount
+        {
+            get
+            {
+                return _rowCount;
+            }
+
+            set
+            {
+                _rowCount = value;
+            }
+        }
+
+        public int FeatureCount
+        {
+            get
+            {
+                return _featureCount;
+            }
+
+            set
+            {
+                _featureCount = value;
+            }
+        }
+
         public DataSetObject(string filePath)
         {
             StreamReader sr = new StreamReader(filePath);
@@ -42,17 +68,12 @@ namespace ML.DataObjectFolder
                     tmpData.SetFeature(new FeatureObject(features));
                 }
 
-                DataSet.Add(_rowCount, tmpData);
+                DataSet.Add(RowCount, tmpData);
 
-                _rowCount++;
+                RowCount++;
             }
 
-            _featureCount = DataSet[0].GetFueatureCount();
-        }
-
-        internal int GetFeatureCount()
-        {
-            return _featureCount;
+            FeatureCount = DataSet[0].GetFueatureCount();
         }
     }
 }

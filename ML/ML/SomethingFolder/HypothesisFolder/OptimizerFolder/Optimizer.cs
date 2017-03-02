@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ML.DataObjectFolder;
+using ML.SomethingFolder.HypothesisFolder.PredictFolder;
 
 namespace ML.SomethingFolder.HypothesisFolder.OptimizerFolder
 {
@@ -27,6 +29,11 @@ namespace ML.SomethingFolder.HypothesisFolder.OptimizerFolder
         public void SetCostFunction(ICostFunction costFunction)
         {
             _costFunction = costFunction;
+        }
+
+        internal void Train(Predictor predictor, double[] weightArray, DataSetObject dataSet)
+        {
+            _optimizer.Train(predictor, weightArray, dataSet, _learningRate);
         }
     }
 }

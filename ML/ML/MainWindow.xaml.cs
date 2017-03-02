@@ -39,12 +39,29 @@ namespace ML
             }
 
             _something = new Something((KindOfSomething)Enum.Parse(typeof(KindOfSomething), comboBox_Filter.Text)
-                , double.Parse(textBox_LearningRate.Text), _dataSet.GetFeatureCount());
+                , double.Parse(textBox_LearningRate.Text), _dataSet.FeatureCount);
         }
 
         private void button_train_Click(object sender, RoutedEventArgs e)
         {
+            int trainingCount = int.Parse(textBox_TrainCount.Text);
 
+            for (int i = 0; i < trainingCount; i++)
+            {
+                _something.Train(_dataSet);
+
+                //if (trainingCount % 50 == 0)
+                //{
+                //    double[] weight = _something.GetWeight();
+
+                //    for (int j = 0; j < weight.Length; j++)
+                //    {
+                //        Console.Write(weight[j].ToString()+",");
+                //    }
+                //    Console.WriteLine();
+
+                //}
+            }
         }
 
         private void button_Predict_Click(object sender, RoutedEventArgs e)

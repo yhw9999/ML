@@ -19,6 +19,19 @@ namespace ML.SomethingFolder.HypothesisFolder
         Predictor _predictor =null;
         Optimizer _optimizer = null;
 
+        public double[] WeightArray
+        {
+            get
+            {
+                return _weightArray;
+            }
+
+            set
+            {
+                _weightArray = value;
+            }
+        }
+
         public Hypothesis(Predictor predictor, ICostFunction costFunction , IOptimizer optimizer, double learningRate)
         {
             _predictor = predictor;
@@ -34,17 +47,22 @@ namespace ML.SomethingFolder.HypothesisFolder
         {
             random = new Random();
 
-            _weightArray = new double[featureCount];
+            WeightArray = new double[featureCount];
 
             for (int i = 0; i < featureCount; i++)
             {
-                _weightArray[i] = random.NextDouble();
+                WeightArray[i] = random.NextDouble();
             }
         }
 
         internal object Predict(FeatureObject feature)
         {
-            return _predictor.Predict(feature, _weightArray);
+            return _predictor.Predict(feature, WeightArray);
+        }
+
+        internal void Train(DataSetObject dataSet)
+        {
+            _optimizer.Train(_predictor, WeightArray, dataSet);
         }
     }
 }

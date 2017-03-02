@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ML.DataObjectFolder;
 
 namespace ML.SomethingFolder.HypothesisFolder.PredictFolder.CostFunctionFolder
 {
     public class MethodOfLeastSquares : ICostFunction
     {
-        public double GetDifferential()
+        public object GetDifferential(object predict, LabelObject label)
         {
-            throw new NotImplementedException();
+            return (double)predict - Convert.ToDouble(label.Label);
         }
 
-        public double GetTotalCost()
+        public object GetTotalCost()
         {
             throw new NotImplementedException();
         }

@@ -9,9 +9,19 @@ namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
 {
     public class Regression : Predictor
     {
-        public override double Predict(FeatureObject feature, double[] weightArray)
+        public override object Predict(FeatureObject feature, double[] weightArray)
         {
-            throw new NotImplementedException();
+            double result = 0;
+
+            double[] features = feature.GetFeature();
+
+            //multiply feature by weight
+            for (int i = 0; i < weightArray.Length; i++)
+            {
+                result += features[i] * weightArray[i];
+            }
+
+            return result;
         }
     }
 }

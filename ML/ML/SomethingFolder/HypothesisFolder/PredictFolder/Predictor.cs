@@ -13,11 +13,16 @@ namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
     {
         protected ICostFunction _costFunction;
 
-        abstract public double Predict(FeatureObject feature, double[] weightArray);
+        abstract public object Predict(FeatureObject feature, double[] weightArray);
 
         public void SetCostFunction(ICostFunction costFunction)
         {
             _costFunction = costFunction;
+        }
+
+        internal object GetDifferential(DataObject value, double[] weightArray)
+        {
+            return _costFunction.GetDifferential(Predict(value.Feature, weightArray), value.Label);
         }
     }
 }

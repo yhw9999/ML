@@ -45,5 +45,15 @@ namespace ML.SomethingFolder
         {
             return _hypothesis.Predict(feature);
         }
+
+        internal void Train(DataSetObject dataSet)
+        {
+            _hypothesis.Train(dataSet);
+        }
+
+        internal double[] GetWeight()
+        {
+            return _hypothesis.WeightArray;
+        }
     }
 }
