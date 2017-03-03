@@ -58,6 +58,10 @@
     <Compile Include="DataObjectFolder\DataSetObject.cs" />
     <Compile Include="DataObjectFolder\FeatureObject.cs" />
     <Compile Include="DataObjectFolder\LabelObject.cs" />
+    <Compile Include="Draw\DrawObjector.cs" />
+    <Compile Include="Draw\IDraw.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\HistoryFolder\History.cs" />
+    <Compile Include="SomethingFolder\HypothesisFolder\HistoryFolder\Record.cs" />
     <Compile Include="SomethingFolder\HypothesisFolder\Hypothesis.cs" />
     <Compile Include="SomethingFolder\HypothesisFolder\OptimizerFolder\GradientDescent.cs" />
     <Compile Include="SomethingFolder\HypothesisFolder\OptimizerFolder\IOptimizer.cs" />
@@ -106,8 +110,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Draw\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

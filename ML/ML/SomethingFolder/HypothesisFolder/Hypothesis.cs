@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ML.DataObjectFolder;
+using ML.SomethingFolder.HypothesisFolder.HistoryFolder;
 
 namespace ML.SomethingFolder.HypothesisFolder
 {
     public class Hypothesis
     {
         double[] _weightArray;
+
+        History _costHistory;
+        History _weightHistory;
 
         Random random;
 
@@ -34,6 +38,9 @@ namespace ML.SomethingFolder.HypothesisFolder
 
         public Hypothesis(Predictor predictor, ICostFunction costFunction , IOptimizer optimizer, double learningRate)
         {
+            _costHistory = new History ();
+            _weightHistory = new History();
+
             _predictor = predictor;
             _predictor.SetCostFunction(costFunction);
 
@@ -55,6 +62,16 @@ namespace ML.SomethingFolder.HypothesisFolder
             }
         }
 
+        internal List<T> GetWeightHistory<T>()
+        {
+            return _weightHistory.GetHistory<T>();
+        }
+
+        internal List<T> GetCostHistory<T>()
+        {
+            return _costHistory.GetHistory<T>();
+        }
+
         internal object Predict(FeatureObject feature)
         {
             return _predictor.Predict(feature, WeightArray);
@@ -63,6 +80,9 @@ namespace ML.SomethingFolder.HypothesisFolder
         internal void Train(DataSetObject dataSet)
         {
             _optimizer.Train(_predictor, WeightArray, dataSet);
+
+            _weightHistory.RecordHistory((double[])WeightArray.Clone());
+            _costHistory.RecordHistory(_predictor.GetTotalCost(WeightArray, dataSet));
         }
     }
 }

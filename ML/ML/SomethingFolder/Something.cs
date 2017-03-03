@@ -55,5 +55,16 @@ namespace ML.SomethingFolder
         {
             return _hypothesis.WeightArray;
         }
+
+        internal List<T> GetCostHistory<T>()
+        {
+            return _hypothesis.GetCostHistory<T>();
+        }
+
+        internal List<T> GetWeightHistory<T>()
+        {
+            return _hypothesis.GetWeightHistory<T>();
+
+        }
     }
 }

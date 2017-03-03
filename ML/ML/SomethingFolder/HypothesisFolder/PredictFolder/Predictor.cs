@@ -15,14 +15,14 @@ namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
 
         abstract public object Predict(FeatureObject feature, double[] weightArray);
 
+        abstract internal object GetDifferential(DataObject value, double[] weightArray);
+
+        abstract internal object GetTotalCost(double[] weightArray, DataSetObject dataSet);
+
         public void SetCostFunction(ICostFunction costFunction)
         {
             _costFunction = costFunction;
         }
 
-        internal object GetDifferential(DataObject value, double[] weightArray)
-        {
-            return _costFunction.GetDifferential(Predict(value.Feature, weightArray), value.Label);
-        }
     }
 }

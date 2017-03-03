@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using ML.DataObjectFolder;
+using ML.Draw;
 using ML.SomethingFolder;
 using System;
 using System.Windows;
@@ -11,6 +12,8 @@ namespace ML
     /// </summary>
     public partial class MainWindow : Window
     {
+        DrawObjector _drawObjector = null;
+
         DataSetObject _dataSet = null;
 
         Something _something = null;
@@ -40,6 +43,8 @@ namespace ML
 
             _something = new Something((KindOfSomething)Enum.Parse(typeof(KindOfSomething), comboBox_Filter.Text)
                 , double.Parse(textBox_LearningRate.Text), _dataSet.FeatureCount);
+
+            _drawObjector = new DrawObjector();
         }
 
         private void button_train_Click(object sender, RoutedEventArgs e)
@@ -62,6 +67,11 @@ namespace ML
 
                 //}
             }
+
+            _drawObjector.DrawCostGraph(grid_CostGrid, canvas_CostGraph, _something.GetCostHistory<double>());
+
+            _drawObjector.DrawWeightGraph(grid_WeightGraph, canvas_WeightGraph, _something.GetWeightHistory<double[]>());
+
         }
 
         private void button_Predict_Click(object sender, RoutedEventArgs e)
@@ -69,4 +79,5 @@ namespace ML
             textBlock_Predict.Text = _something.Predict(_dataSet.DataSet[0].Feature).ToString();
         }
     }
+
 }
