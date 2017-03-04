@@ -71,7 +71,6 @@ namespace ML
             _drawObjector.DrawCostGraph(grid_CostGrid, canvas_CostGraph, _something.GetCostHistory<double>());
 
             _drawObjector.DrawWeightGraph(grid_WeightGraph, canvas_WeightGraph, _something.GetWeightHistory<double[]>());
-
         }
 
         private void button_Predict_Click(object sender, RoutedEventArgs e)

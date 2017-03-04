@@ -33,6 +33,10 @@ namespace ML.SomethingFolder
 
                 case KindOfSomething.Logistic:
 
+                    _hypothesis = new Hypothesis(new Logistic(), new MethodOfLeastSquares(), new GradientDescent(), learningRate);
+
+                    _hypothesis.InitWeightArray(featureCount);
+
                     break;
 
                 default:

@@ -213,7 +213,5 @@ namespace ML.Draw
             grid.Children.Add(yMax);
             grid.Children.Add(yMin);
         }
-
-
     }
 }
