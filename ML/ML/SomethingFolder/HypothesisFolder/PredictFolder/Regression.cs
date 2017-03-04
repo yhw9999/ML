@@ -24,11 +24,18 @@ namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
             return result;
         }
 
+        
         internal override object GetDifferential(DataObject value, double[] weightArray)
         {
-            return _costFunction.GetDifferential(Predict(value.Feature, weightArray), value.Label);
+            return (double)Predict(value.Feature, weightArray) - Convert.ToDouble(value.Label.Label);
         }
 
+        /// <summary>
+        /// MethodOfLeastSquares
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="weightArray"></param>
+        /// <returns></returns>
         internal override object GetTotalCost(double[] weightArray, DataSetObject dataSet)
         {
             double totalCost = 0;

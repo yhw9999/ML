@@ -29,6 +29,12 @@ namespace ML.SomethingFolder.HypothesisFolder.PredictFolder
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// MethodOfMaximumLikehood
+        /// </summary>
+        /// <param name="weightArray"></param>
+        /// <param name="dataSet"></param>
+        /// <returns></returns>
         internal override object GetTotalCost(double[] weightArray, DataSetObject dataSet)
         {
             double totalCost = 0;
